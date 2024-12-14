@@ -51,7 +51,7 @@ $(document).ready(function () {
 //funksjon for å lagre billett på server
     function lagreBillett(billett) {
         $.ajax({
-            url: "/kjopBillett",
+            url: "http://localhost:8080/kjopBillett",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(billett),
@@ -69,7 +69,7 @@ $(document).ready(function () {
 //funksjon for å vise billetter fra server-arrayet
     function visBilletter() {
         $.ajax({
-            url: "/hentOversikt",
+            url: "http://localhost:8080/hent",
             method: "GET",
             success: function (data) {
                 const billettOversikt = $("#billetter");
@@ -121,7 +121,7 @@ $(document).ready(function () {
 //funksjon for å nullstille billettoversikten (snakker med server)
     function nullstill() {
         $.ajax({
-            url: "/nullstill",
+            url: "http://localhost:8080/nullstill",
             method: "DELETE",
             success: function () {
                 alert("alle billetter er slettet");
@@ -137,10 +137,4 @@ $(document).ready(function () {
     //event listener for å slette alle billetter (når knappen trykkes)
     $("#slettAlle").on("click", function (event) {
         if (confirm("er du sikker på at du vil slette alle billetter?")) {
-            nullstill();
-        }
-        visBilletter();
-
-    });
-
-});
+            nulls
